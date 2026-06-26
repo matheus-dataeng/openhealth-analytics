@@ -6,4 +6,4 @@ notbooks
 logs/
 .gitkeep
 __pycache__
-data_lake/data_lake/
+data_lake/
