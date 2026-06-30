@@ -75,7 +75,6 @@ models/
 | API | FastAPI |
 | Dashboard | Streamlit |
 | Visualização | Plotly |
-| Containerização | Docker / Docker Compose |
 | Versionamento | Git / GitHub |
 
 ---
