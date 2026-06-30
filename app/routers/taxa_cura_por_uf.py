@@ -18,6 +18,6 @@ def taxa_cura_uf(db = Depends(get_db)) -> list[dict]:
         return result.mappings().all()
     
     except SQLAlchemyError as e:
-        logger.error(f"Falha ao consultar taxa de cura por UF:{e} ❌")
+        logger.error(f"Falha ao consultar taxa de cura por UF:{e}")
         raise HTTPException(status_code= 500, detail="Erro ao consultar taxa de cura por UF ❌")
         

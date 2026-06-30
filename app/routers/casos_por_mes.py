@@ -18,7 +18,7 @@ def casos_por_mes(db = Depends(get_db)) -> list[dict]:
         return result.mappings().all()
     
     except SQLAlchemyError as e:
-        logger.error(f"Falha ao consultar casos por mês: {e} ❌")
+        logger.error(f"Falha ao consultar casos por mês: {e}")
         raise HTTPException(status_code= 500, detail="Erro ao consultar casos por mês ❌")
     
     

@@ -7,3 +7,5 @@ logs/
 .gitkeep
 __pycache__
 data_lake/
+Makefile
+ingestion/export/s3_export.py

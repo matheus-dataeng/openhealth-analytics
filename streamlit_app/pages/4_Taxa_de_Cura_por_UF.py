@@ -1,11 +1,11 @@
 import streamlit as st 
 import pandas as pd 
 import plotly.express as px
-from utils.api import get_taxa_cura
+from utils.api import get_taxa_cura_uf
 
 st.title("Taxa de cura por UF")
 
-dados = get_taxa_cura()
+dados = get_taxa_cura_uf()
 
 df = pd.DataFrame(dados)
 

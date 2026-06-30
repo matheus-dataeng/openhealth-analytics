@@ -18,5 +18,5 @@ def classificacao_por_uf(db = Depends(get_db)) -> list[dict]:
         return result.mappings().all()
     
     except SQLAlchemyError as e:
-        logger.error(f"Falha ao consultar classificação por UF: {e} ❌")
+        logger.error(f"Falha ao consultar classificação por UF: {e}")
         raise HTTPException(status_code= 500, detail="Erro ao consultar classificação por UF ❌")

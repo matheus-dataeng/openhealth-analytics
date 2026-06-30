@@ -4,6 +4,10 @@ from app.routers.casos_por_mes import router as casos_por_mes
 from app.routers.casos_por_uf import router as casos_por_uf
 from app.routers.classificacao_por_uf import router as classificacao_por_uf
 from app.routers.taxa_cura_por_uf import router as taxa_cura_por_uf
+from app.routers.casos_por_municipio import router as casos_por_municipio
+from app.routers.casos_por_regiao import router as casos_por_regiao
+from app.routers.gravidade_por_regiao import router as gravidade_por_regiao
+from app.routers.taxa_cura_por_municipio import router as taxa_cura_por_municipio
 
 log_config()
 
@@ -43,5 +47,22 @@ app.include_router(
 )
 app.include_router(
     taxa_cura_por_uf,
-    tags=["Taxa de Cura 💊"]
+    tags=["Taxa de Cura UF 💊"]
+)
+
+app.include_router(
+    casos_por_municipio,
+    tags=["Casos por Município 🏘️"]
+)
+app.include_router(
+    casos_por_regiao,
+    tags=["Casos por Região 🗺️"]
+)
+app.include_router(
+    gravidade_por_regiao,
+    tags=["Gravidade por Região ⚠️"]
+)
+app.include_router(
+    taxa_cura_por_municipio,
+    tags=["Taxa de Cura por Município 💉"]
 )

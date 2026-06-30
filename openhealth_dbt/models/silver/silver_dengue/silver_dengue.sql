@@ -30,6 +30,7 @@ CASE
     WHEN "SG_UF" = 52 THEN 'GO'
     WHEN "SG_UF" = 53 THEN 'DF'
 END AS uf,
+"ID_MN_RESI" AS cod_municipio_residencia,
 CASE
     WHEN "NU_IDADE_N" BETWEEN 4000 AND 4009 THEN '0-9 anos'
     WHEN "NU_IDADE_N" BETWEEN 4010 AND 4019 THEN '10-19 anos'
@@ -110,4 +111,4 @@ CASE
     WHEN "NAUSEA" = 2 THEN 'nao'
     ELSE 'nao informado'
 END AS nausea
-FROM {{ ref('stg_raw_bronze') }}
+FROM {{ ref('stg_raw_dengue') }}

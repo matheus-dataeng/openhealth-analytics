@@ -1,25 +1,39 @@
 import logging as log 
-from extract_csv import extract_csv, load_bronze_datalake
-from load import load 
 from utils.logger_config import log_config
+from sources.dengue.extract_dengue import extract_dengue, load_bronze_datalake_dengue
+from sources.ibge.extract_ibge import extract_ibge, load_bronze_datalake_ibge
+from export.export_datalake import credentials_datalake, silver_datalake, gold_datalake
+from load import credentials_load, load
 
 logger = log.getLogger(__name__)
 log_config()
 
-def main(): 
+def main() -> None:
+    
+    logger.info("Iniciando Pipeline")
     
     try: 
-        logger.info("Iniciando Pipeline")
         
-        extract = extract_csv()
-        load_bronze_datalake(extract)
+        engine_load = credentials_load()
         
-        load_dw = load(extract)
+        dados_dengue = extract_dengue()
+        load_bronze_datalake_dengue(dados_dengue)
+        load(dados_dengue, table_name="raw_dengue", schema_name="bronze", engine=engine_load)
         
-        logger.info("Pipeline finalizado")
+        dados_ibge = extract_ibge()
+        load_bronze_datalake_ibge(dados_ibge)
+        load(dados_ibge, table_name="raw_ibge", schema_name="bronze", engine=engine_load)
         
-    except Exception:
-        logger.exception("Pipeline falhou")
-        raise
+        engine_datalake = credentials_datalake()
+        
+        silver_datalake(engine=engine_datalake)
+        gold_datalake(engine=engine_datalake)
+        
+        logger.info("Pipeline Finalizado")
+        
+    except Exception as e:
+        logger.error(f"Falha no Pipeline: {e}")
+        raise 
+    
 if __name__ == "__main__":
-    main() 
+    main()
