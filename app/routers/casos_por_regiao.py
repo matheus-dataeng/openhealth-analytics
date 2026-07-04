@@ -13,22 +13,7 @@ def casos_regiao(db = Depends(get_db)) -> list[dict]:
     
     try:
         
-        query = text(
-            '''
-            SELECT
-                ibge.regiao,
-                COUNT(*) AS total_casos
-            FROM silver.silver_dengue AS den
-            LEFT JOIN silver.silver_ibge AS ibge
-                ON CAST(den.cod_municipio_residencia AS BIGINT)::text = LEFT(ibge.cod_municipio::text, 6)
-            GROUP BY ibge.regiao
-            ORDER BY total_casos DESC
-            
-            '''
-            
-        )
-        
-        result = db.execute(query)
+        result = db.execute(text("SELECT * FROM gold.casos_por_regiao"))
         logger.info("Casos por Região")
         return result.mappings().all()
     

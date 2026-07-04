@@ -32,7 +32,8 @@ def silver_datalake(engine: Engine) -> None:
     
     modelos_silver = {
         "silver_dengue" : "silver_dengue",
-        "silver_ibge" : "silver_ibge"
+        "silver_ibge" : "silver_ibge",
+        "silver_clima" : "silver_clima"
     }
     
     try:
@@ -65,6 +66,7 @@ def gold_datalake(engine: Engine) -> None:
             "casos_por_regiao",
             "gravidade_por_regiao",
             "taxa_cura_por_municipio",
+            "indicadores_clima_uf"
         ]
          
         for tabela in tabelas:

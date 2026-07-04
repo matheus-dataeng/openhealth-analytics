@@ -2,6 +2,7 @@ import logging as log
 from utils.logger_config import log_config
 from sources.dengue.extract_dengue import extract_dengue, load_bronze_datalake_dengue
 from sources.ibge.extract_ibge import extract_ibge, load_bronze_datalake_ibge
+from sources.clima.extract_clima import extract_clima, load_bronze_datalake_clima
 from export.export_datalake import credentials_datalake, silver_datalake, gold_datalake
 from load import credentials_load, load
 
@@ -23,6 +24,10 @@ def main() -> None:
         dados_ibge = extract_ibge()
         load_bronze_datalake_ibge(dados_ibge)
         load(dados_ibge, table_name="raw_ibge", schema_name="bronze", engine=engine_load)
+        
+        dados_clima = extract_clima()
+        load_bronze_datalake_clima(dados_clima)
+        load(dados_clima, table_name="raw_clima", schema_name="bronze", engine=engine_load)
         
         engine_datalake = credentials_datalake()
         

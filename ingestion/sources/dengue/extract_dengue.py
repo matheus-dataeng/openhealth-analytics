@@ -12,13 +12,13 @@ def extract_dengue() -> pd.DataFrame:
     logger.info("Iniciando extração dos dados de casos de dengue")
     
     try:
-        csv_path = os.getenv("DENGUE_CSV")
+        csv_dengue = os.getenv("DENGUE_CSV")
         
-        if not csv_path:
+        if not csv_dengue:
             logger.error("Variável de ambiente não encontrado")
-            raise ValueError("Variável de ambiente não foi definida.")
+            raise ValueError("Variável de ambiente não foi definida")
 
-        df_dengue = pd.read_csv(filepath_or_buffer= csv_path, encoding= "utf-8", low_memory= False, sep= ",")
+        df_dengue = pd.read_csv(filepath_or_buffer= csv_dengue, encoding= "utf-8", low_memory= False, sep= ",")
         logger.info(f"Arquivo extraido! / Colunas: {df_dengue.shape[1]} / Linhas: {len(df_dengue)}")
     
     except Exception:

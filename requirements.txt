@@ -3,3 +3,8 @@ python-dotenv
 sqlalchemy
 psycopg2-binary
 boto3
+fastapi
+uvicorn
+streamlit
+plotly
+requests

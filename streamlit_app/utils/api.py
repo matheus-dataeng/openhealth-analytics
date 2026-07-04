@@ -31,3 +31,8 @@ def get_gravidade_regiao():
     
     response = requests.get(f"{URL_API}/gravidade-por-regiao")
     return response.json()
+
+def get_indicador_clima_uf():
+    
+    response = requests.get(f"{URL_API}/indicadores-clima-por-uf")
+    return response.json()

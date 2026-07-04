@@ -12,28 +12,7 @@ router = APIRouter()
 def casos_municipio(db = Depends(get_db)) -> list[dict]:
     
     try:
-        query = text(
-            '''
-            SELECT
-                ibge.nome_municipio,
-                ibge.uf,
-                ibge.nome_estado,
-                ibge.regiao,
-                COUNT(*) AS total_casos
-            FROM silver.silver_dengue AS den
-            LEFT JOIN silver.silver_ibge AS ibge
-                ON CAST(den.cod_municipio_residencia AS BIGINT)::text = LEFT(ibge.cod_municipio::text, 6)
-            GROUP BY
-                ibge.nome_municipio,
-                ibge.uf,
-                ibge.nome_estado,
-                ibge.regiao
-            ORDER BY total_casos DESC
-    
-            '''
-        )
-        
-        result = db.execute(query)
+        result = db.execute(text("SELECT * FROM gold.casos_por_municipio"))
         logger.info("Casos por municipio")
         return result.mappings().all()
 
