@@ -4,8 +4,12 @@
 data 
 notbooks
 logs/
-.gitkeep
 __pycache__
+ingestion/main.py
 data_lake/
 Makefile
-ingestion/export/s3_export.py
+init_db/
+
+# dbt 
+openhealth_dbt/target/
+openhealth_dbt/dbt_packages/

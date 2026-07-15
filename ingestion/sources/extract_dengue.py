@@ -3,6 +3,7 @@ import logging as log
 import os 
 from dotenv import load_dotenv
 from pathlib import Path
+from ingestion.export.s3_export import bucket_s3
 
 logger = log.getLogger(__name__)
 load_dotenv()
@@ -33,9 +34,10 @@ def load_bronze_datalake_dengue(df_dengue: pd.DataFrame) -> None:
     
     try:    
         
-        bronze_dengue = Path("data_lake/bronze/bronze_dengue/bronze_dengue.parquet")
+        bronze_dengue = Path("data_lake/bronze/bronze_dengue.parquet")
         bronze_dengue.parent.mkdir(parents= True, exist_ok= True)
-        df_dengue.to_parquet(bronze_dengue, index= False)        
+        df_dengue.to_parquet(bronze_dengue, index= False)
+        bucket_s3(bronze_dengue, "bronze/bronze_dengue.parquet")        
         logger.info(f"Arquivo salvo: {bronze_dengue}")
     
     except Exception:

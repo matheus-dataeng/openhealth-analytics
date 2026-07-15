@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.get("/taxa-cura-por-uf")
 
-def taxa_cura_uf(db = Depends(get_db)) -> list[dict]:
+def taxa_cura_uf(db = Depends(get_db)):
     
     try:
         

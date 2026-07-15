@@ -27,10 +27,14 @@ def credentials_load() -> Engine:
 def load(df: pd.DataFrame, table_name: str, schema_name: str, engine: Engine) -> None:
 
     logger.info(f"Iniciando carga da camada raw - {schema_name}.{table_name}")
-
+    
     try:
+        
+        with engine.begin() as conn:
+            conn.execute(text(f"CREATE SCHEMA IF NOT EXISTS {schema_name}"))
+        
         inspector = inspect(engine)
-        table_exists = inspector.has_table(table_name, schema=schema_name) #checa se a tabela existe no banco
+        table_exists = inspector.has_table(table_name, schema_name) 
 
         if table_exists:
             

@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.get("/gravidade-por-regiao")
 
-def gravidade_regiao(db = Depends(get_db)) -> list[dict]:
+def gravidade_regiao(db = Depends(get_db)):
     
     try:
              

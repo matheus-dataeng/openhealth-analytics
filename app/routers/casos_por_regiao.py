@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.get("/casos-por-regiao")
 
-def casos_regiao(db = Depends(get_db)) -> list[dict]: 
+def casos_regiao(db = Depends(get_db)): 
     
     try:
         

@@ -9,11 +9,11 @@ router = APIRouter()
 
 @router.get("/indicadores-clima-por-uf")
 
-def indicadores_clima_uf(db = Depends(get_db)) -> list[dict]:
+def indicadores_clima_uf(db = Depends(get_db)):
     
     try:
         
-        result = db.execute(text('SELECT * FROM gold.indicadores_clima_por_uf'))
+        result = db.execute(text('SELECT * FROM gold.indicadores_clima_uf'))
         logger.info("Indicadores de clima por UF")
         return result.mappings().all()
     

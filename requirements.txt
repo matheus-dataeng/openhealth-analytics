@@ -8,3 +8,5 @@ uvicorn
 streamlit
 plotly
 requests
+xlrd
+dbt-postgres

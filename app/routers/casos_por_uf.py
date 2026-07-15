@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.get("/casos-por-uf")
 
-def casos_por_uf(db = Depends(get_db)) -> list[dict]:
+def casos_por_uf(db = Depends(get_db)):
     
     try:
         

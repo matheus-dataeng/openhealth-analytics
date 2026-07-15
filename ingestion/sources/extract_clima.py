@@ -3,6 +3,7 @@ import logging as log
 import os 
 from dotenv import load_dotenv
 from pathlib import Path
+from ingestion.export.s3_export import bucket_s3
 
 logger = log.getLogger(__name__)
 load_dotenv()
@@ -16,7 +17,7 @@ def extract_clima() -> pd.DataFrame:
         csv_clima = os.getenv("CLIMA_CSV")
         
         if not csv_clima:
-            logger.error("Variavel nã definida no .env")
+            logger.error("Variavel não definida no .env")
             raise ValueError("Variável de ambiente não foi definida")
         
         df_clima = pd.read_csv(filepath_or_buffer= csv_clima, encoding="latin1", sep=",", low_memory=False)
@@ -28,15 +29,16 @@ def extract_clima() -> pd.DataFrame:
     
     return df_clima
 
-def load_bronze_datalake_clima(df: pd.DataFrame) -> None:
+def load_bronze_datalake_clima(df_clima: pd.DataFrame) -> None:
     
     logger.info("Iniciando carga no datalake bronze clima")
     
     try:
         
-        bronze_clima = Path("data_lake/bronze/bronze_clima/bronze_clima.parquet")
+        bronze_clima = Path("data_lake/bronze/bronze_clima.parquet")
         bronze_clima.parent.mkdir(parents=True, exist_ok=True)
-        df.to_parquet(bronze_clima, index= False)
+        df_clima.to_parquet(bronze_clima, index= False)
+        bucket_s3(bronze_clima, "bronze/bronze_clima/bronze_clima.parquet")
         logger.info(f"Arquivo salvo: {bronze_clima}")
     
     except Exception:

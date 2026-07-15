@@ -1,6 +1,7 @@
 import requests
 
-URL_API = "http://localhost:8000"
+URL_API = "http://api:8000"
+
 
 def get_casos_por_mes():
     

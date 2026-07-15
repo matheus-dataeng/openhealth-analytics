@@ -11,14 +11,13 @@ df = pd.DataFrame(dados)
 
 colunas_numericas = [
     "temperatura_media_c",
-    "temperatura_max_c",
+    "temperatura_max_c", 
     "temperatura_min_c",
     "precipitacao_total_mm",
-    "umidade_media_pct",
-    "total_casos"
+    "umidade_media_pct"
 ]
 
-df[colunas_numericas] = pd.to_numeric(df[colunas_numericas], errors="coerce")
+df[colunas_numericas] = df[colunas_numericas].apply(pd.to_numeric, errors="coerce")
 
 df = df.dropna(subset=colunas_numericas)
 
@@ -44,9 +43,7 @@ graph_indicador_clima = px.scatter(
     title="Temperatura Média x Casos de Dengue"
 )
 
-graph_indicador_clima.update_traces(
-    marker=dict(opacity=0.75, line=dict(width=0.5, color="white"))
-)
+graph_indicador_clima.update_traces(marker=dict(opacity=0.75, line=dict(width=0.5, color="white")))
 
 graph_indicador_clima.update_layout(
     template="plotly_dark",

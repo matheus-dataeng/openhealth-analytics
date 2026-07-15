@@ -22,26 +22,8 @@ app = FastAPI(
     ),
     version="3.0.0",
     contact={
-        "name": "Matheus",
         "url": "https://github.com/matheus-dataeng",
     },
-    openapi_tags=[
-        {
-            "name": "Dengue",
-            "description": "Indicadores analíticos sobre casos de dengue, "
-                           "agregados a partir da camada Gold.",
-        },
-        {
-            "name": "Dengue + IBGE",
-            "description": "Indicadores que cruzam casos de dengue com a "
-                           "dimensão geográfica do IBGE (município, UF, região).",
-        },
-        {
-            "name": "Dengue + Clima",
-            "description": "Indicadores que cruzam casos de dengue com dados "
-                           "climáticos do INMET (temperatura, precipitação, umidade).",
-        },
-    ],
 )
 
 
