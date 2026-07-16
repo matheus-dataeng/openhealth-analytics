@@ -252,4 +252,4 @@ python ingestion/export/export_datalake.py
 | **SINAN/DataSUS** | Casos de dengue notificados no Brasil — Ministério da Saúde |
 | **IBGE — Localidades** | Municípios, UFs e regiões do Brasil |
 | **INMET/BDMEP** | Dados climáticos históricos das estações automáticas das 27 capitais |
-| **IBGE — Estimativas Populacionais** | População estimada por município, referência julho/2024 |
+| **IBGE — Estimativas Populacionais** | População estimada por município |
