@@ -242,8 +242,7 @@ python ingestion/export/export_datalake.py
 - [x] **v4** — IBGE População: taxa de incidência por 100k habitantes por município
 - [x] **Deploy** — AWS EC2 (FastAPI + Streamlit) + AWS RDS (PostgreSQL)
 - [x] **Orquestração** — Apache Airflow (on-premise) orquestrando o pipeline completo
-- [ ] **Landing page** — Frontend estático apresentando o projeto com links pro dashboard e API
-
+- [ ] **Landing page** — Frontend estático apresentando o projeto 
 ---
 
 ## 📌 Fontes dos Dados
