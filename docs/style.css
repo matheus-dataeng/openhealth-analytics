@@ -34,6 +34,7 @@
   .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
   @media (max-width:640px){.wrap{padding:0 20px;}}
 
+  /* ---------- NAV ---------- */
   nav{
     position:sticky;top:0;z-index:50;
     background:rgba(13,43,42,0.92);
@@ -56,6 +57,7 @@
   .navlinks a:hover{color:var(--gold);}
   @media (max-width:860px){.navlinks{display:none;}}
 
+  /* ---------- HERO ---------- */
   header.hero{
     background:
       radial-gradient(ellipse 900px 500px at 85% -10%, rgba(216,169,59,0.14), transparent 60%),
@@ -113,6 +115,7 @@
   .btn-ghost{border:1px solid var(--panel-line);color:var(--paper);}
   .btn-ghost:hover{background:rgba(243,246,241,0.06);}
 
+  /* ---------- SECTION shell ---------- */
   section{padding:96px 0;border-bottom:1px solid var(--line);}
   .sec-head{max-width:640px;margin-bottom:56px;}
   .sec-eyebrow{
@@ -127,6 +130,7 @@
   .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1;transform:none;}
 
+  /* ---------- ARCHITECTURE / PIPELINE ---------- */
   .sources{
     display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px;
   }
@@ -177,6 +181,7 @@
     padding:8px 16px;border-radius:20px;
   }
 
+  /* ---------- STACK TABLE ---------- */
   .stack-table{width:100%;border-collapse:collapse;font-size:14.5px;}
   .stack-table th{
     text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;
@@ -189,6 +194,7 @@
   .stack-table td:first-child{color:var(--ink-soft);width:220px;}
   .stack-table td:last-child{font-family:var(--mono);font-weight:500;}
 
+  /* ---------- GOLD INDICATORS ---------- */
   .group-label{
     font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
     color:var(--bronze);margin:40px 0 16px;
@@ -210,6 +216,7 @@
   }
   .alert-box b{font-family:var(--mono);text-transform:uppercase;font-size:11.5px;letter-spacing:0.06em;display:block;margin-bottom:6px;}
 
+  /* ---------- API TERMINAL ---------- */
   .terminal{
     background:var(--panel);border-radius:6px;overflow:hidden;
     border:1px solid var(--panel-line);
@@ -236,6 +243,7 @@
     .route .desc{grid-column:1 / -1;padding-top:2px;}
   }
 
+  /* ---------- DASHBOARD MOCK ---------- */
   .browser{
     border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--paper-alt);
   }
@@ -289,6 +297,7 @@
   .chart-btn-all .chart-name,.chart-btn-all .chart-go{color:var(--panel);}
   .chart-btn-all:hover{background:#e8bc52;transform:translateY(-2px);}
 
+  /* ---------- ROADMAP ---------- */
   .timeline{position:relative;padding-left:32px;}
   .timeline::before{
     content:"";position:absolute;left:6px;top:6px;bottom:6px;width:1px;background:var(--line);
@@ -305,6 +314,7 @@
   .t-item p{font-size:14px;color:var(--ink-soft);}
   .t-item.pending h4{color:var(--ink-soft);}
 
+  /* ---------- FOOTER ---------- */
   footer{background:var(--panel);color:rgba(243,246,241,0.7);padding:56px 0 40px;}
   .foot-grid{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:28px;}
   .foot-links{display:flex;gap:24px;font-size:14px;}
