@@ -2,6 +2,8 @@
 
 > Plataforma de dados em saúde pública (dengue), construída como uma trilha prática de Engenharia de Dados moderna, do dado bruto ao dashboard, com múltiplas fontes integradas e arquitetura Medallion.
 
+🔗 **[Landing page + dashboard ao vivo](https://matheus-dataeng.github.io/openhealth-analytics/)** · 📊 **[Dashboard direto](https://openhealth.duckdns.org)** · 💻 **[Código no GitHub](https://github.com/matheus-dataeng/OpenHealth-Analytics)**
+
 ---
 
 ## 🎯 Sobre o projeto
@@ -81,6 +83,23 @@ models/
 
 ---
 
+## ☁️ Deploy em produção
+
+O projeto roda em produção, publicamente acessível:
+
+| Componente | Onde roda | Como |
+|---|---|---|
+| **Landing page** | GitHub Pages | Estática, pasta `docs/` do repositório |
+| **API (FastAPI)** | AWS EC2 | Container Docker, `docker-compose.prod.yml` |
+| **Dashboard (Streamlit)** | AWS EC2 | Container Docker, mesma instância da API |
+| **Banco (PostgreSQL)** | AWS RDS | Gerenciado, schemas bronze/silver/gold |
+| **Domínio** | DuckDNS | `openhealth.duckdns.org` apontando pro Elastic IP da EC2 |
+| **Orquestração (Airflow)** | Local / on-premise | Roda sob demanda pra atualizar os dados; não fica em produção 24/7 |
+
+> **Airflow local, não na nuvem**: a orquestração do pipeline roda localmente por escolha de arquitetura — só precisa estar de pé quando há dado novo pra processar, diferente de API e Dashboard, que ficam sempre disponíveis pro público.
+
+---
+
 ## 🛠️ Stack
 
 | Camada | Tecnologia |
@@ -95,6 +114,9 @@ models/
 | Dashboard | Streamlit + Plotly |
 | Infraestrutura | Docker / Docker Compose |
 | Cloud | AWS EC2 + AWS RDS |
+| Proxy / HTTPS | Caddy |
+| DNS | DuckDNS |
+| Hospedagem do front | GitHub Pages |
 | Versionamento | Git / GitHub |
 
 ---
@@ -168,7 +190,7 @@ streamlit_app/
 
 ---
 
-## 🚀 Como Executar
+## 🚀 Como Executar (ambiente local)
 
 ### Pré-requisitos
 
@@ -200,37 +222,41 @@ CLIMA_CSV=data/clima_capitais_2026.csv
 POPULACAO_CSV=data/POP2024_20241230.xls
 ```
 
-### 3. Subir os serviços (API + Streamlit)
+### 3. Subir os serviços (Airflow + API + Streamlit)
 
 ```bash
 docker compose up -d --build
 ```
 
-### 4. Executar o pipeline de ingestão
+### 4. Executar o pipeline
+
+Pelo Airflow (`localhost:8080`), dispara a DAG `OpenHealth_Analytics` — ela executa extração, carga, transformação dbt e exportação do data lake de ponta a ponta.
+
+Ou manualmente, passo a passo:
 
 ```bash
 python ingestion/main.py
-```
-
-### 5. Executar as transformações dbt
-
-```bash
-cd openhealth_dbt
-dbt run
-```
-
-### 6. Exportar o Data Lake
-
-```bash
+cd openhealth_dbt && dbt run
 python ingestion/export/export_datalake.py
 ```
 
-### 7. Acessar
+### 5. Acessar localmente
 
 | Serviço | URL |
 |---|---|
+| Airflow | `http://localhost:8080` |
 | Dashboard | `http://localhost:8501` |
 | API (Swagger) | `http://localhost:8000/docs` |
+
+---
+
+## 🌐 Acessar em produção
+
+| Serviço | URL |
+|---|---|
+| Landing page | https://matheus-dataeng.github.io/openhealth-analytics/ |
+| Dashboard | https://openhealth.duckdns.org |
+| API (Swagger) | https://openhealth.duckdns.org:8000/docs *(ou porta interna configurada)* |
 
 ---
 
@@ -242,7 +268,9 @@ python ingestion/export/export_datalake.py
 - [x] **v4** — IBGE População: taxa de incidência por 100k habitantes por município
 - [x] **Deploy** — AWS EC2 (FastAPI + Streamlit) + AWS RDS (PostgreSQL)
 - [x] **Orquestração** — Apache Airflow (on-premise) orquestrando o pipeline completo
-- [ ] **Landing page** — Frontend estático apresentando o projeto 
+- [x] **Landing page** — Frontend estático apresentando o projeto, hospedado no GitHub Pages
+
+
 ---
 
 ## 📌 Fontes dos Dados
