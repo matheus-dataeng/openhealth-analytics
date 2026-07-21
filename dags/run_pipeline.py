@@ -1,6 +1,5 @@
 import pendulum 
 import subprocess
-from pathlib import Path
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from ingestion.sources.extract_dengue import extract_dengue, load_bronze_datalake_dengue

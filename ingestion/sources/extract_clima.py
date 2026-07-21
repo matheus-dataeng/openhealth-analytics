@@ -38,7 +38,7 @@ def load_bronze_datalake_clima(df_clima: pd.DataFrame) -> None:
         bronze_clima = Path("data_lake/bronze/bronze_clima.parquet")
         bronze_clima.parent.mkdir(parents=True, exist_ok=True)
         df_clima.to_parquet(bronze_clima, index= False)
-        bucket_s3(bronze_clima, "bronze/bronze_clima/bronze_clima.parquet")
+        bucket_s3(bronze_clima, "bronze/bronze_clima.parquet")
         logger.info(f"Arquivo salvo: {bronze_clima}")
     
     except Exception:
