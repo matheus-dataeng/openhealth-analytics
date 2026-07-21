@@ -60,15 +60,15 @@ SINAN/DataSUS     IBGE Localidades     INMET/BDMEP     IBGE População
 ```
 models/
 ├── staging/
-│   ├── staging_dengue/       ← stg_raw_dengue.sql
-│   ├── staging_regiao/       ← stg_raw_regiao.sql
-│   ├── staging_clima/        ← stg_raw_clima.sql
-│   └── staging_populacao/    ← stg_raw_populacao.sql
+│   ├── stg_raw_dengue.sql
+│   ├── stg_raw_regiao.sql      
+│   ├── stg_raw_clima.sql       
+│   └── stg_raw_populacao.sql    
 ├── silver/
-│   ├── silver_dengue/        ← tradução de códigos SINAN
-│   ├── silver_regiao/        ← renomeação de colunas IBGE
-│   ├── silver_clima/         ← filtros de sanidade (temperatura, umidade)
-│   └── silver_populacao/     ← construção do cod_municipio (7 dígitos)
+│   ├── silver_dengue.sql        
+│   ├── silver_regiao.sql       
+│   ├── silver_clima.sql         
+│   └── silver_populacao.sql    
 └── gold/
     ├── casos_por_mes.sql
     ├── casos_por_uf.sql
