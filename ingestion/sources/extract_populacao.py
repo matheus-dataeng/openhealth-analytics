@@ -13,7 +13,7 @@ def extract_populacao() -> pd.DataFrame:
     logger.info("Iniciando extração dos dados populacionais")
     
     try:
-            csv_populacao = os.getenv("POPULACAO_XSL")
+            csv_populacao = os.getenv("POPULACAO_XLS")
             
             if not csv_populacao:
                 logger.error("Variavel não definida no .env")
