@@ -10,11 +10,6 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!--
-  Links pro dashboard usam https://openhealth.duckdns.org como placeholder.
-  Depois que o DuckDNS + Caddy estiverem configurados na EC2, troca essa
-  string (busca e substitui) pela URL real em todo o arquivo.
--->
 <nav>
   <div class="wrap">
     <div class="brand"><span class="brand-mark"></span>OpenHealth Analytics</div>
@@ -35,7 +30,7 @@
     <h1 class="title">Da notificação<br>bruta ao <em>dado</em><br>que decide.</h1>
     <p class="hero-sub">OpenHealth Analytics transforma registros de dengue do SINAN/DataSUS, dados geográficos do IBGE, séries climáticas do INMET/BDMEP e estimativas populacionais do IBGE em indicadores prontos pra consumo, numa arquitetura Medalhão, do zero ao dashboard.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="https://openhealth.duckdns.org" target="_blank" rel="noopener">Explorar o dashboard →</a>
+      <a class="btn btn-primary" href="https://openhealth-analytics-sczqorzaspblhw3wbonu4h.streamlit.app" target="_blank" rel="noopener">Explorar o dashboard →</a>
       <a class="btn btn-ghost" href="https://github.com/matheus-dataeng" target="_blank" rel="noopener">Ver repositório</a>
     </div>
     <div class="stat-row">
@@ -204,42 +199,42 @@
       <p class="sec-desc">Multi-page Streamlit, consumindo dados diretamente da API — sem acesso direto ao banco.</p>
     </div>
     <div class="chart-grid reveal">
-      <a class="chart-btn" href="https://openhealth.duckdns.org/Casos_por_Mes" target="_blank" rel="noopener">
+      <a class="chart-btn" href="https://openhealth-analytics-sczqorzaspblhw3wbonu4h.streamlit.app/Casos_por_Mes" target="_blank" rel="noopener">
         <span class="chart-icon">📅</span>
         <span class="chart-name">Casos por Mês</span>
         <span class="chart-go">Abrir gráfico →</span>
       </a>
-      <a class="chart-btn" href="https://openhealth.duckdns.org/Casos_por_UF" target="_blank" rel="noopener">
+      <a class="chart-btn" href="https://openhealth-analytics-sczqorzaspblhw3wbonu4h.streamlit.app/Casos_por_UF" target="_blank" rel="noopener">
         <span class="chart-icon">📍</span>
         <span class="chart-name">Casos por Estado</span>
         <span class="chart-go">Abrir gráfico →</span>
       </a>
-      <a class="chart-btn" href="https://openhealth.duckdns.org/Classificacao_por_UF" target="_blank" rel="noopener">
+      <a class="chart-btn" href="https://openhealth-analytics-sczqorzaspblhw3wbonu4h.streamlit.app/Classificacao_por_UF" target="_blank" rel="noopener">
         <span class="chart-icon">🩺</span>
         <span class="chart-name">Classificação por Estado</span>
         <span class="chart-go">Abrir gráfico →</span>
       </a>
-      <a class="chart-btn" href="https://openhealth.duckdns.org/Taxa_de_Cura_por_UF" target="_blank" rel="noopener">
+      <a class="chart-btn" href="https://openhealth-analytics-sczqorzaspblhw3wbonu4h.streamlit.app/Taxa_de_Cura_por_UF" target="_blank" rel="noopener">
         <span class="chart-icon">💊</span>
         <span class="chart-name">Taxa de Cura por Estado</span>
         <span class="chart-go">Abrir gráfico →</span>
       </a>
-      <a class="chart-btn" href="https://openhealth.duckdns.org/Casos_por_Regiao" target="_blank" rel="noopener">
+      <a class="chart-btn" href="https://openhealth-analytics-sczqorzaspblhw3wbonu4h.streamlit.app/Casos_por_Regiao" target="_blank" rel="noopener">
         <span class="chart-icon">🗺️</span>
         <span class="chart-name">Casos por Região</span>
         <span class="chart-go">Abrir gráfico →</span>
       </a>
-      <a class="chart-btn" href="https://openhealth.duckdns.org/Gravidade_por_Regiao" target="_blank" rel="noopener">
+      <a class="chart-btn" href="https://openhealth-analytics-sczqorzaspblhw3wbonu4h.streamlit.app/Gravidade_por_Regiao" target="_blank" rel="noopener">
         <span class="chart-icon">⚠️</span>
         <span class="chart-name">Gravidade por Região</span>
         <span class="chart-go">Abrir gráfico →</span>
       </a>
-      <a class="chart-btn" href="https://openhealth.duckdns.org/Indicadores_Clima_por_UF" target="_blank" rel="noopener">
+      <a class="chart-btn" href="https://openhealth-analytics-sczqorzaspblhw3wbonu4h.streamlit.app/Indicadores_Clima_por_UF" target="_blank" rel="noopener">
         <span class="chart-icon">🌡️</span>
         <span class="chart-name">Indicadores Clima por Estado</span>
         <span class="chart-go">Abrir gráfico →</span>
       </a>
-      <a class="chart-btn chart-btn-all" href="https://openhealth.duckdns.org" target="_blank" rel="noopener">
+      <a class="chart-btn chart-btn-all" href="https://openhealth-analytics-sczqorzaspblhw3wbonu4h.streamlit.app" target="_blank" rel="noopener">
         <span class="chart-icon">🏠</span>
         <span class="chart-name">Ver todos no dashboard</span>
         <span class="chart-go">Acessar →</span>
