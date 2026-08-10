@@ -2,7 +2,7 @@
 
 > Plataforma de dados em saúde pública (dengue), construída como uma trilha prática de Engenharia de Dados moderna, do dado bruto ao dashboard, com múltiplas fontes integradas e arquitetura Medallion.
 
-🔗 **[Landing page + dashboard ao vivo](https://matheus-dataeng.github.io/openhealth-analytics/)** · 📊 **[Dashboard direto](https://openhealth.duckdns.org)** · 💻 **[Código no GitHub](https://github.com/matheus-dataeng/OpenHealth-Analytics)**
+🔗 **[Landing page + dashboard ao vivo](https://matheus-dataeng.github.io/openhealth-analytics/)** · 📊 **[Dashboard direto](https://openhealth-analytics-sczqorzaspblhw3wbonu4h.streamlit.app/)** 
 
 ---
 
