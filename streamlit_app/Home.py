@@ -15,7 +15,7 @@ utilizando dados públicos do Sistema de Informação de Agravos de Notificaçã
 
 Os dados são processados por um pipeline de engenharia de dados com arquitetura medallion
 (Bronze → Silver → Gold), transformados com dbt, salvos em um Data Warehouse PostgreSQL
-e disponibilizados através de uma API FastAPI.
+e disponibilizados através de uma API.
 
 ---
 """)
