@@ -37,7 +37,7 @@ with col2:
 with col3:
     st.metric(
         label="Fonte dos Dados",
-        value="SINAN/DataSUS"
+        value="SINAN/DataSUS/IBGE"
     )
 
 st.markdown("## 📊 Análises Disponíveis")
