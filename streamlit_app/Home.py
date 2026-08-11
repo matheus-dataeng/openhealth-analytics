@@ -8,7 +8,7 @@ st.set_page_config(
 
 st.markdown("""
 # 🦟 OpenHealth Analytics
-### Plataforma de Dados de Saúde Pública • Dengue • SINAN/DataSUS 2026
+### Plataforma de Dados de Saúde Pública • Dengue 
 
 Este dashboard apresenta análises sobre os casos de dengue notificados no Brasil,
 utilizando dados públicos do Sistema de Informação de Agravos de Notificação (SINAN/DataSUS).
