@@ -266,7 +266,7 @@ python ingestion/export/export_datalake.py
 - [x] **v2** — IBGE Localidades: dimensão geográfica, cruzamento por município/UF/região
 - [x] **v3** — INMET/BDMEP: dados climáticos das 27 capitais, cruzamento clima × dengue
 - [x] **v4** — IBGE População: taxa de incidência por 100k habitantes por município
-- [x] **Deploy** — AWS EC2 (FastAPI + Streamlit) + AWS RDS (PostgreSQL)
+- [x] **Deploy** — Render API, Streamlit community cloud, PostresSQL NEON
 - [x] **Orquestração** — Apache Airflow (on-premise) orquestrando o pipeline completo
 - [x] **Landing page** — Frontend estático apresentando o projeto, hospedado no GitHub Pages
 
